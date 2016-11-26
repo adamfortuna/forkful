@@ -89,3 +89,32 @@
           %a{:href => "#"}
             See All 23 Best of Orlando Lists
             %i.fa.fa-arrow-right{"aria-hidden" => "true"}
+
+
+.content--reviews
+  .container
+    .row
+      .col-12
+        %h3.header--underline Recent Reviews
+        .card-columns
+          = render partial: 'featured/review', collection: Seed.data.reviews.active
+        %p.text-xs-right
+          %a{:href => "#"}
+            See All 76 Reviews
+            %i.fa.fa-arrow-right{"aria-hidden" => "true"}
+
+
+.content-instagram
+  .container
+    .row
+      %h3.header--underline Instagram
+  :javascript
+    <!-- LightWidget WIDGET --><script src="//lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/4573d3a0f1815906a0082ab82ab77186.html" id="lightwidget_4573d3a0f1" name="lightwidget_4573d3a0f1"  scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+
+
+.content-maps
+  .container
+    .row.area--maps
+      %h3.header--underline Maps
+      .maps--cards
+        = render partial: 'maps/map', collection: Seed.data.maps.active

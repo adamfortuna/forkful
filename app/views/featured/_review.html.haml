@@ -1,0 +1,18 @@
+.card
+  %a.float-left.reviews--img-link.img--wrapper.pr-3{:href => "#"}
+    = image_tag review.image, class: 'card-img-left'
+  .card-block
+    - if review.is_new
+      %span.badge.badge-new New
+    .reviews--title
+      %h4.card-title.mb-0
+        %a{:href => "#"}= review.title
+      %p.lead= review.location
+      %span.badge.badge-success
+        = review.rating
+        %i.fa.fa-spoon
+    %p.card-text
+      = review.preview
+      %a.reviews--read-more{:href => "#"}
+        Read Review
+        %i.fa.fa-arrow-right

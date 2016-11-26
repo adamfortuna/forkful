@@ -1,0 +1,26 @@
+---
+active:
+  - :is_new: true
+    :image: news/bulla.jpg
+    :title: Chefs Table
+    :location: Winter Garden
+    :rating: 5
+    :preview: Prix fixe menu at the historic Edgewater Hotel in Winter Garden.
+  - :is_new: false
+    :image: news/bulla.jpg
+    :title: Chefs Table
+    :location: Winter Garden
+    :rating: 3
+    :preview: Prix fixe menu at the historic Edgewater Hotel in Winter Garden.
+  - :is_new: false
+    :image: news/bulla.jpg
+    :title: Chefs Table
+    :location: Winter Garden
+    :rating: 5
+    :preview: Prix fixe menu at the historic Edgewater Hotel in Winter Garden.
+  - :is_new: false
+    :image: news/bulla.jpg
+    :title: Somewhere Not So Good
+    :location: Mills 50
+    :rating: 2
+    :preview: Prix fixe menu at the historic Edgewater Hotel in Winter Garden.

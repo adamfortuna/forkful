@@ -1,0 +1,7 @@
+.card
+  = image_tag map.image, class: 'card-img img-fluid map--icon'
+  %a.card-img-overlay{:href => "#"}
+    %i.fa.fa-map-marker{"aria-hidden" => "true"}
+    .card-block
+      %h4.card-title= map.title
+      %p.card-text= map.description
