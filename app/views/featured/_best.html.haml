@@ -1,0 +1,11 @@
+.card
+  %a.best--img-link.img--wrapper{:href => "#"}
+    = image_tag best.image, class: 'card-img-top img-fluid'
+  .card-block
+    - if best.is_new
+      %span.badge.badge-new New
+    %h4.card-title
+      %a{:href => "#"}= best.title
+    %p.card-text= best.description
+    %p.card-text
+      %small.text-muted= best.meta

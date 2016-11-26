@@ -1,0 +1,72 @@
+%nav.navbar.navbar-light.text-xs-center.header--nav
+  .container
+    .navbar-header
+      .navbar-brand.navbar-brand-centered
+        %a.nav-brand--title{:href => "#"}
+          %i.d-inline-block.fa.fa-spoon
+          Forkful
+      %button.navbar-toggler.hidden-lg-up.float-right{"aria-controls" => "navbarResponsive", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarResponsive", "data-toggle" => "collapse", :type => "button"}
+      #navbarResponsive.collapse.navbar-toggleable-md.nav--mainnav
+        %ul.nav.navbar-nav
+          %li.nav-item
+            %a.nav-link{:href => "#"} News &amp; Events
+          %li.nav-item
+            %a.nav-link{:href => "#"} Reviews
+          %li.nav-item.dropdown
+            %a#supportedContentDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"} Food Maps
+            .dropdown-menu.nav-maps--menu{"aria-labelledby" => "supportedContentDropdown"}
+              .dropdown-group
+                %h4 Orlando Area
+                %a.dropdown-item{:href => "#"} All Central Florida
+                %a.dropdown-item{:href => "#"} Altamonte Springs
+                %a.dropdown-item{:href => "#"} Baldwin Park
+                %a.dropdown-item{:href => "#"} Downtown
+                %a.dropdown-item{:href => "#"}
+                  Florida Mall Area
+                  %i.fa.fa-asterisk{"aria-hidden" => "true"}
+                %a.dropdown-item{:href => "#"} International Drive
+                %a.dropdown-item{:href => "#"} Kissimmee
+                %a.dropdown-item{:href => "#"} Mall at Millenia Area
+                %a.dropdown-item{:href => "#"} Mills 50
+                %a.dropdown-item{:href => "#"} Winter Garden
+                %a.dropdown-item{:href => "#"} Winter Park
+              .dropdown-group
+                %h4 Disney World
+                %a.dropdown-item{:href => "#"} All Disney World
+                %a.dropdown-item{:href => "#"} Animal Kingdom
+                %a.dropdown-item{:href => "#"} Disney Resorts
+                %a.dropdown-item{:href => "#"} Disney Springs
+                %a.dropdown-item{:href => "#"} Epcot
+                %a.dropdown-item{:href => "#"} Magic Kingdom
+              .dropdown-group
+                %h4 Universal Orlando
+                %a.dropdown-item{:href => "#"} All Universal Orlando
+                %a.dropdown-item{:href => "#"} Islands of Adventure
+                %a.dropdown-item{:href => "#"} Univeral CityWalk
+                %a.dropdown-item{:href => "#"} Universal Resorts
+                %a.dropdown-item{:href => "#"} Universal Studios
+        %ul.nav.navbar-nav.navbar-right.float-lg-right
+          %li.nav-item
+            %a.nav-link{:href => "#"} Guides
+          %li.nav-item.dropdown
+            %a#supportedContentDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"} Best Of Orlando
+            .dropdown-menu.nav-maps--bestof{"aria-labelledby" => "supportedContentDropdown"}
+              .dropdown-group
+                %h4 By Cuisine
+                %a.dropdown-item{:href => "#"} Best Pizza
+                %a.dropdown-item{:href => "#"} Best Ramen
+                %a.dropdown-item{:href => "#"} Best Seafood
+                %a.dropdown-item{:href => "#"} Best Sushi
+                %a.dropdown-item{:href => "#"} Best Steak
+                %a.dropdown-item{:href => "#"} Best Tacos
+              .dropdown-group
+                %h4 By Location
+                %a.dropdown-item{:href => "#"} Best of Disney Springs
+                %a.dropdown-item{:href => "#"} Best of Epcot
+                %a.dropdown-item{:href => "#"} Best Food Trucks
+                %a.dropdown-item{:href => "#"} Best Movie Theaters
+          %li.nav-item
+            %a.nav-link{:href => "#"} About
+          %li.nav-item
+            %a.nav-link{:href => "#"}
+              %i.fa.fa-search

@@ -1,0 +1,10 @@
+.card
+  = image_tag article.image
+  .featured--callout.card-img-overlay.col-xs-3.offset-6
+    %a{:href => "#"}
+      - if article.is_new
+        %span.badge.badge-new New
+      %h4= article.title
+      %p.card-text= article.description
+      %p.card-text
+        %small.text-muted= article.meta

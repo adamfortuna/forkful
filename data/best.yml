@@ -1,0 +1,17 @@
+---
+all:
+  - :is_new: true
+    :image: news/bulla.jpg
+    :title: 14 Best Pizzas in Orlando
+    :description: Spanish Tapas, cocktails and authentic dishes.
+    :meta: December 2, 2016 by Adam Fortuna
+  - :is_new: false
+    :image: news/domu.jpg
+    :title: 8 Best Places for Ramen in Orlando
+    :description: The new ramen and cocktails restaurant in East End Market is in soft opening.
+    :meta: November 26, 2016 by Adam Fortuna
+  - :is_new: false
+    :image: news/bulla.jpg
+    :title: 17 Best places to eat at Disney Springs
+    :description: Spanish Tapas, cocktails and authentic dishes.
+    :meta: November 17, 2016 by Adam Fortuna

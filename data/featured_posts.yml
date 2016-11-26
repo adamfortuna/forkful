@@ -1,0 +1,20 @@
+---
+active:
+  - :active: true
+    :new: true
+    :image: restaurants/bulla.jpg
+    :title: Bulla Gastrobar is a New Winter Park Hot Spot
+    :description: Contemporary bar with made-to-order sangrias, plus Spanish & Catalan small plates.
+    :meta: By Marilyn Torres on November 8, 2016.
+  - :active: false
+    :new: false
+    :image: restaurants/domu.jpg
+    :title: Domu Ramen at East End Market Opens
+    :description: Modern restaurant/bar serving ramen & Asian small plates, plus cocktails, sake, wine & beer.
+    :meta: By Marilyn Torres on October 22, 2016.
+  - :active: false
+    :new: false
+    :image: restaurants/domu2.jpg
+    :title: Kadence, Omakase Sushi by Kappo Chefs
+    :description: We mourned with Kappo closed, but the team has been hard at work opening a new sushi restaurant a few blocks away from East End Market -- across from Stardust.
+    :meta: By Marilyn Torres on September 14, 2016.

@@ -1,0 +1,78 @@
+.content--featured-posts
+  position: absolute
+  top: 0
+  overflow: hidden
+  border-bottom: 3px solid $brand-primary
+  figure
+    width: 100%
+    text-align: center
+    overflow: hidden
+  img
+    position: relative
+    left: 50%
+    transform: translate(-50%,-10%)
+    max-width: 100%
+    max-height: 100%
+
+.carousel-caption,
+.featured--callout
+  bottom: auto
+  p
+    color: $gray
+  a
+    padding: 1.2rem
+    transition: all 0.4s
+    background-color: rgba(255,255,255,0.83)
+    display: inline-block
+    border-bottom: 4px solid $brand-primary
+    &:hover
+      text-decoration: none
+      background-color: rgba(255,255,255,0.95)
+      h3,
+      h4
+        color: $brand-primary
+    h3,
+    h4
+      font-family: $font-family-serif
+      color: $gray-dark
+    h3
+      font-size: 2.2rem
+    h3
+      font-size: 2rem
+    em
+      font-style: italic
+      font-family: $font-family-serif
+      color: $gray-light
+
+@media (min-width: 576px)
+  .carousel-caption
+    top: 250px
+
+@media (max-width: 768px)
+  .content--featured-posts
+    top: 100px
+
+.content--first
+  margin-top: 250px
+.content--featured-posts
+  height: 300px
+@media (min-width: 576px)
+  .content--first
+    margin-top: 350px
+  .content--featured-posts
+    height: 400px
+@media (min-width: 768px)
+  .content--first
+    margin-top: 450px
+  .content--featured-posts
+    height: 500px
+@media (min-width: 992px)
+  .content--first
+    margin-top: 550px
+  .content--featured-posts
+    height: 600px
+@media (min-width: 1200px)
+  .content--first
+    margin-top: 650px
+  .content--featured-posts
+    height: 700px

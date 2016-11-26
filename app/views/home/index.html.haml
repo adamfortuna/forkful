@@ -1,0 +1,91 @@
+#featured-post.content--featured-posts.carousel.slide{ 'data-ride' => 'carousel' }
+  %ol.carousel-indicators
+    - Seed.data.featured_posts.active.each_with_index do |post, index|
+      %li{ 'data-target' => '#featured-post', 'data-slide-to' => index, class: (index == 0) ? 'active' : '' }
+
+  .carousel-inner.text-left{ role: 'listbox' }
+    = render partial: 'featured/post', collection: Seed.data.featured_posts.active
+
+  %a.left.carousel-control{ href: '#featured-post', role: 'button', 'data-slide' => 'prev' }
+    %span.icon-prev{ 'aria-hidden' => 'true' }
+    %span.sr-only Previous
+
+  %a.right.carousel-control{ href: '#featured-post', role: 'button', 'data-slide' => 'next' }
+    %span.icon-next{ 'aria-hidden' => 'true' }
+    %span.sr-only Next
+
+
+.content--first
+  .container
+    .row.area--meta
+      .col-md-7
+        %h3.header--underline Stay Up to Date
+        %div
+          %p
+            What are you waiting for? Join our monthly newsletter for
+            = succeed "," do
+              %b exclusive Orlando deals
+          %form.form-inline.newsletter--form.row.rounded.p-2
+            %input#exampleInputEmail3.form-control.col-xs{:placeholder => "Enter email", :type => "email"}/
+            %button.col-3.col-xs-12.btn.btn-primary.newsletter--submit.ml-2{:type => "submit"} Sign Up
+          %p.text-muted
+            On the fence about signing up? Check out
+            = succeed "." do
+              %a{:href => "#"} last months newsletter
+      .col-md-4.offset-md-1.content-about
+        %div
+          %h3.header--underline.clearfix About Forkful
+        .float-right.float-md-left.float-lg-right.ml-2
+          %img.rounded{:alt => "", :src => "assets/about.png"}/
+          %ul.list-inline.mt-2.ml-3.content-about--social
+            %li.list-inline-item
+              %a{:href => "#"}
+                %i.fa.fa-twitter{"aria-hidden" => "true"}
+            %li.list-inline-item
+              %a{:href => "#"}
+                %i.fa.fa-facebook{"aria-hidden" => "true"}
+            %li.list-inline-item
+              %a{:href => "#"}
+                %i.fa.fa-instagram{"aria-hidden" => "true"}
+            %li.list-inline-item
+              %a{:href => "#"}
+                %i.fa.fa-envelope{"aria-hidden" => "true"}
+        %p
+          Navigate the Central Florida food scene like a local. Join Marilyn and Adam as they explore Orlando one fork at a time.
+          %a{:href => "#"} Read More
+
+
+.content--news
+  .container
+    .row.area--news
+      .news
+        %h3.header--underline Latest News
+        .card-columns
+          = render partial: 'news/news', collection: Seed.data.news.active
+        %p.text-xs-right
+          %a{:href => "#"}
+            Read More News
+            %i.fa.fa-arrow-right{"aria-hidden" => "true"}
+
+
+.content--featured-article
+  .container
+    %h3.header--underline Featured Article
+    = render partial: 'featured/article', object: Seed.data.featured_article
+    %p.text-xs-right
+      %a{:href => "#"}
+        See All Featured Articles
+        %i.fa.fa-arrow-right{"aria-hidden" => "true"}
+
+
+.content--best-of
+  .container
+    .row.area--best
+      .best.col-xs-12
+        %h3.header--underline Best Of Orlando
+        .card-deck
+          = render partial: 'featured/best', collection: Seed.data.best.all
+        %p.text-xs-right
+          %a{:href => "#"}
+            See All 23 Best of Orlando Lists
+            %i.fa.fa-arrow-right{"aria-hidden" => "true"}

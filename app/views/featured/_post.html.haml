@@ -1,0 +1,12 @@
+.carousel-item{ class: post[:active] ? 'active' : '' }
+  %figure
+    = image_tag post[:image]
+  .carousel-caption.offset-4.col-3.text-sm-left
+    - if post[:new]
+      %span.badge.badge-new New
+
+    = link_to '#' do
+      %h3= post[:title]
+      %p= post[:description]
+      %p
+        %em= post[:meta]
