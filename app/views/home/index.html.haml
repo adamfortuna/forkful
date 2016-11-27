@@ -1,10 +1,10 @@
-#featured-post.content--featured-posts.carousel.slide{ 'data-ride' => 'carousel' }
+#featured-post.content--featured-posts.featured--image.carousel.slide{ 'data-ride' => 'carousel' }
   %ol.carousel-indicators
-    - Seed.data.featured_posts.active.each_with_index do |post, index|
+    - @featured_posts.each do |post, index|
       %li{ 'data-target' => '#featured-post', 'data-slide-to' => index, class: (index == 0) ? 'active' : '' }
 
   .carousel-inner.text-left{ role: 'listbox' }
-    = render partial: 'featured/post', collection: Seed.data.featured_posts.active
+    = render partial: 'featured/post', collection: @featured_posts
 
   %a.left.carousel-control{ href: '#featured-post', role: 'button', 'data-slide' => 'prev' }
     %span.icon-prev{ 'aria-hidden' => 'true' }
@@ -61,7 +61,7 @@
       .news
         %h3.header--underline Latest News
         .card-columns
-          = render partial: 'news/news', collection: Seed.data.news.active
+          = render partial: 'news/news', collection: @news
         %p.text-xs-right
           %a{:href => "#"}
             Read More News
@@ -71,7 +71,7 @@
 .content--featured-article
   .container
     %h3.header--underline Featured Article
-    = render partial: 'featured/article', object: Seed.data.featured_article
+    = render partial: 'featured/article', object: @featured_articles
     %p.text-xs-right
       %a{:href => "#"}
         See All Featured Articles
@@ -84,7 +84,7 @@
       .best.col-xs-12
         %h3.header--underline Best Of Orlando
         .card-deck
-          = render partial: 'featured/best', collection: Seed.data.best.all
+          = render partial: 'featured/best', collection: @bests
         %p.text-xs-right
           %a{:href => "#"}
             See All 23 Best of Orlando Lists
@@ -97,7 +97,7 @@
       .col-12
         %h3.header--underline Recent Reviews
         .card-columns
-          = render partial: 'featured/review', collection: Seed.data.reviews.active
+          = render partial: 'featured/review', collection: @reviews
         %p.text-xs-right
           %a{:href => "#"}
             See All 76 Reviews
@@ -117,4 +117,4 @@
     .row.area--maps
       %h3.header--underline Maps
       .maps--cards
-        = render partial: 'maps/map', collection: Seed.data.maps.active
+        = render partial: 'maps/map', collection: @maps

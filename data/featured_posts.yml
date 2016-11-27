@@ -3,7 +3,7 @@ active:
   - :active: true
     :new: true
     :image: restaurants/bulla.jpg
-    :title: Bulla Gastrobar is a New Winter Park Hot Spot
+    :title: Bulla Gastrobar is a Winter Park Hot Spot
     :description: Contemporary bar with made-to-order sangrias, plus Spanish & Catalan small plates.
     :meta: By Marilyn Torres on November 8, 2016.
   - :active: false

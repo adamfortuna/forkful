@@ -1,11 +1,11 @@
 .card
   %a.float-left.news--img-link.img--wrapper{:href => "#"}
-    = image_tag news[:image]
-  .card-block
-    - if news[:new]
-      %span.badge.badge-new New
-
-    %h4.card-title
-      %a{:href => "#"}= news[:title]
-    %p.card-text
-      %small.text-muted= news[:meta]
+    = image_tag news.image, class: 'rounded'
+  - if news.is_new
+    %span.badge.badge-new New
+  .card-img-overlay.p-0.rounded
+    .card-block
+      %h4.card-title
+        %a{:href => "#"}= news.title
+      -# %p.card-text
+      -#   %small.text-muted= news[:meta]

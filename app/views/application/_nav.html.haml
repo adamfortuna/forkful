@@ -2,7 +2,7 @@
   .container
     .navbar-header
       .navbar-brand.navbar-brand-centered
-        %a.nav-brand--title{:href => "#"}
+        = link_to root_path, class: 'nav-brand--title' do
           %i.d-inline-block.fa.fa-spoon
           Forkful
       %button.navbar-toggler.hidden-lg-up.float-right{"aria-controls" => "navbarResponsive", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarResponsive", "data-toggle" => "collapse", :type => "button"}
@@ -66,7 +66,7 @@
                 %a.dropdown-item{:href => "#"} Best Food Trucks
                 %a.dropdown-item{:href => "#"} Best Movie Theaters
           %li.nav-item
-            %a.nav-link{:href => "#"} About
+            = link_to 'About', about_path, class: 'nav-link'
           %li.nav-item
             %a.nav-link{:href => "#"}
               %i.fa.fa-search

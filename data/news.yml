@@ -1,26 +1,26 @@
 ---
 active:
-  - :new: true
+  - :is_new: true
     :image: news/bulla.jpg
     :title: Bulla Gastropub opens in Winter Park
     :meta: Posted 3 days ago
-  - :new: false
+  - :is_new: false
     :image: news/domu.jpg
     :title: Domu Ramen Now Accepting Reservations
     :meta: Posted 1 week ago
-  - :new: false
+  - :is_new: false
     :image: news/omni.jpg
     :title: Magic of Maple at Omni Orlando Resort at ChampionsGate
     :meta: Posted 3 weeks ago
-  - :new: false
+  - :is_new: false
     :image: news/lionfish.jpg
     :title: Lionfish at Grills Seafood Deck in Cape Canaveral
     :meta: Posted 2 months ago
-  - :new: false
+  - :is_new: false
     :image: news/hanger.jpg
     :title: Jock Lindsey’s Hangar Bar at Disney Springs
     :meta: Posted 2 months ago
-  - :new: false
+  - :is_new: false
     :image: news/whisper.jpg
     :title: Whisper Creek Farm - The Kitchen
     :meta: Posted 2 months ago
