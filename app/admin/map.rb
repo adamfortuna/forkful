@@ -1,6 +1,6 @@
   ActiveAdmin.register Map do
   permit_params :title, :short_title, :description, :short_description, :photo, :photo_src, :photo_src_url,
-                location_maps_attributes: [:id, :location_id, :rating, :description, :order, :show_order, :_destroy]
+                location_posts_attributes: [:id, :location_id, :rating, :description, :order, :show_order, :_destroy]
 
   before_filter :only => [:show, :edit, :update, :destroy] do
     @map = Map.friendly.find(params[:id])
@@ -37,7 +37,7 @@
 
 
     panel "Locations" do
-      @map.location_maps.by_order.each do |lm|
+      @map.location_posts.by_order.each do |lm|
         panel lm.location.name do
           attributes_table_for lm do
             row :order
@@ -64,8 +64,8 @@
       f.input :photo_src_url
     end
 
-    f.has_many :location_maps, heading: 'Locations', sortable: :order, allow_destroy: true, new_record: true do |location_map|
-      location_map.inputs :location, :show_order
+    f.has_many :location_posts, heading: 'Locations', sortable: :order, allow_destroy: true, new_record: true do |location_post|
+      location_post.inputs :location, :show_order
     end
 
     f.actions

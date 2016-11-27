@@ -9,8 +9,8 @@ ActiveAdmin.register Location do
     column :name
     column :short_description
     column :rating
-    column :maps do |location|
-      location.maps.count
+    column :posts do |location|
+      location.posts.count
     end
     actions
   end

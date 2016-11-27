@@ -7,11 +7,11 @@ class MapsController < ApplicationController
 
   def show
     @map = Map.friendly.includes(
-      location_maps: [
+      location_posts: [
         location: [
           :address,
           :areas,
-          :maps,
+          :posts,
           location_social_sites: [
             :social_site
           ]

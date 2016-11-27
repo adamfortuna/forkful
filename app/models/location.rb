@@ -10,8 +10,8 @@ class Location < ApplicationRecord
   has_many :location_social_sites, inverse_of: :location
   has_many :social_sites, through: :location_social_sites
 
-  has_many :location_maps, inverse_of: :location
-  has_many :maps, through: :location_maps
+  has_many :location_posts, inverse_of: :location
+  has_many :posts, through: :location_posts
 
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :areas

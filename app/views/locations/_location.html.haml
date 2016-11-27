@@ -1,18 +1,18 @@
-- if location.is_a? LocationMap
-  - location_map = location
-  - location = location_map.location
+- if location.is_a? LocationPost
+  - location_post = location
+  - location = location_post.location
 - else
-  - location_map = nil
+  - location_post = nil
 
 .card.location-map{ 'data-id': location.slug }
   .card-block
     %h2.card-title
-      - if location_map && location_map.show_order?
-        %span.text-primary= "#{location_map.order+1}."
+      - if location_post && location_post.show_order?
+        %span.text-primary= "#{location_post.order+1}."
       = location.name
-    - if location_map && location_map.location.rating && location_map.location.rating > 0
+    - if location_post && location_post.location.rating && location_post.location.rating > 0
       %span.rating.tag.tag-success.current-rating{:href => "#"}
-        = location_map.location.rating.to_i
+        = location_post.location.rating.to_i
         %i.fa.fa-spoon{"aria-hidden" => "true"}
 
   - if location.photo
@@ -30,7 +30,7 @@
 
       .col-6
         %p
-          - location.maps.each do |map|
+          - location.posts.each do |map|
             %span.badge.badge-primary= link_to map.short_title, map
 
           - location.areas.each do |area|

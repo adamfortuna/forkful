@@ -11,7 +11,7 @@ class AreasController < ApplicationController
         location: [
           :address,
           :areas,
-          :maps,
+          :posts,
           location_social_sites: [
             :social_site
           ]

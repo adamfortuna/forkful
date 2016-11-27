@@ -1,12 +1,12 @@
-class LocationMap < ApplicationRecord
+class LocationPost < ApplicationRecord
   belongs_to :location
-  belongs_to :map
+  belongs_to :post
   belongs_to :admin_user, foreign_key: :user_id
 
   validates :location, presence: true
-  validates :map, presence: true
+  validates :post, presence: true
 
-  default_scope -> { order('location_maps.order') }
+  default_scope -> { order('location_posts.order') }
 
   accepts_nested_attributes_for :location, :reject_if => :all_blank
 

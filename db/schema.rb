@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905204040) do
+ActiveRecord::Schema.define(version: 20161127201115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,11 +84,13 @@ ActiveRecord::Schema.define(version: 20160905204040) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
-  create_table "location_maps", force: :cascade do |t|
-    t.integer "map_id",                     null: false
+  create_table "location_posts", force: :cascade do |t|
+    t.integer "post_id",                    null: false
     t.integer "location_id",                null: false
     t.integer "order"
     t.boolean "show_order",  default: true, null: false
+    t.index ["location_id"], name: "index_location_posts_on_location_id", using: :btree
+    t.index ["post_id"], name: "index_location_posts_on_post_id", using: :btree
   end
 
   create_table "location_social_sites", force: :cascade do |t|
@@ -115,7 +117,7 @@ ActiveRecord::Schema.define(version: 20160905204040) do
     t.index ["slug"], name: "index_locations_on_slug", using: :btree
   end
 
-  create_table "maps", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "title",             null: false
@@ -126,6 +128,7 @@ ActiveRecord::Schema.define(version: 20160905204040) do
     t.string   "photo_src"
     t.string   "photo_src_url"
     t.text     "short_description"
+    t.string   "type"
   end
 
   create_table "social_sites", force: :cascade do |t|
