@@ -1,0 +1,13 @@
+- content_for :title, "#{@area.name} - Forkful Orlando"
+- content_for :description, "All about the Central Florida area: #{@area.name}."
+
+#map.container-fluid
+
+.cards.cards--map
+  = render partial: 'locations/location', collection: @area.locations
+
+:javascript
+  var maps = #{@area.to_json};
+
+= javascript_include_tag 'map'
+= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAq79_0A7y4hmyMhTYlSoEINNuR_dBmPZQ&callback=initMap', async: 'async',  defer: 'defer'

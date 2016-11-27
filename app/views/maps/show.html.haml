@@ -10,7 +10,7 @@
     = render partial: 'photos/photo', object: @map
     .card-block= raw markdown @map.description
 
-  = render @map.location_maps
+  = render partial: 'locations/location', collection: @map.location_maps
 
 :javascript
   var maps = #{@map.to_json};

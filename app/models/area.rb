@@ -8,4 +8,12 @@ class Area < ApplicationRecord
   def should_generate_new_friendly_id?
     name_changed?
   end
+
+  def as_json(options={})
+    {
+      title: name,
+      slug: slug,
+      locations: area_locations
+    }
+  end
 end

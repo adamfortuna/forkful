@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :maps
 
+  resources :areas
+
   get '/contact', to: 'home#contact'
   get '/about', to: 'home#about'
 
