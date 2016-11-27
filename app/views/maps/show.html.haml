@@ -1,24 +1,19 @@
-- content_for :title, "#{@map.title} - Cocktail Fly"
+- content_for :title, "#{@map.title} - Forkful Orlando"
 - content_for :description, @map.short_description
 
-.cards
+#map.container-fluid
+
+.cards.cards--map
   .card
     .card-block
       %h1.card-title= @map.title
-      -# %p.text-muted
-      -#   By
-      -#   %a{:href => "#"} Adam Fortuna
-      -#   Aug 24, 2016, 11:00am.
-
     = render partial: 'photos/photo', object: @map
-
     .card-block= raw markdown @map.description
 
   = render @map.location_maps
 
-#map.container-fluid
-
 :javascript
   var maps = #{@map.to_json};
 
+= javascript_include_tag 'map'
 = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAq79_0A7y4hmyMhTYlSoEINNuR_dBmPZQ&callback=initMap', async: 'async',  defer: 'defer'

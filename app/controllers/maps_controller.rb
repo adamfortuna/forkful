@@ -1,6 +1,10 @@
 class MapsController < ApplicationController
   respond_to :html, :json
 
+  def index
+    @maps = Map.all
+  end
+
   def show
     @map = Map.friendly.includes(
       location_maps: [

@@ -19,11 +19,11 @@
 
   .card-block
     .row
-      .col-xs-6
+      .col-6
         %b= location.name
         = render location.address
 
-      .col-xs-6
+      .col-6
         %p
           - location.maps.each do |map|
             %span.tag.tag-primary= map.short_title

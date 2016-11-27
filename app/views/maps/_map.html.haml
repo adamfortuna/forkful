@@ -1,6 +1,6 @@
 .card
   = image_tag map.image, class: 'card-img img-fluid map--icon'
-  %a.card-img-overlay.seethrough--light.seethrough--dark-hover.p-0{:href => "#"}
+  %a.card-img-overlay.seethrough--light.seethrough--dark-hover.p-0{ href: map_path(map.id) }
     %i.fa.fa-map-marker{"aria-hidden" => "true"}
     .card-block
       %h4.card-title= map.title

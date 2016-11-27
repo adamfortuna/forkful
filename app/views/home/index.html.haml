@@ -118,3 +118,7 @@
       %h3.header--underline Maps
       .maps--cards
         = render partial: 'maps/map', collection: @maps
+    %p.text-xs-right
+      %a{ href: maps_path }
+        See All 24 Maps
+        %i.fa.fa-arrow-right{"aria-hidden" => "true"}

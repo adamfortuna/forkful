@@ -38,6 +38,9 @@ class Map < ApplicationRecord
     title_changed?
   end
 
+  def image
+    photo.url(:thumb)
+  end
 
   def as_json(options={})
     {

@@ -4,23 +4,29 @@ active:
     :image: news/bulla.jpg
     :title: Winter Park
     :description: 15 Places in Winter Park
+    :id: 1
   - :is_new: true
     :image: news/bulla.jpg
     :title: Winter Park
     :description: 15 Places in Winter Park
+    :id: 1
   - :is_new: true
     :image: news/bulla.jpg
     :title: Winter Park
     :description: 15 Places in Winter Park
+    :id: 1
   - :is_new: true
     :image: news/bulla.jpg
     :title: Winter Park
     :description: 15 Places in Winter Park
+    :id: 1
   - :is_new: true
     :image: news/bulla.jpg
     :title: Winter Park
     :description: 15 Places in Winter Park
+    :id: 1
   - :is_new: true
     :image: news/bulla.jpg
     :title: Winter Park
     :description: 15 Places in Winter Park
+    :id: 1
