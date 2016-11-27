@@ -4,10 +4,13 @@ class HomeController < ApplicationController
 
   def index
     @featured_posts = Seed.data.featured_posts.active
-    @news = Seed.data.news.active
+
+    @broadcasts = Broadcast.published.by_date.limit(6)
+    @broadcasts_count = Broadcast.count
+
     @featured_articles = Seed.data.featured_article
     @bests = Seed.data.best.all
     @reviews = Seed.data.reviews.active
-    @maps = Seed.data.maps.active
+    @maps = Map.published.by_date.limit(8)
   end
 end

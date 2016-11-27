@@ -1,36 +1,12 @@
-- if location.is_a? LocationPost
-  - location_post = location
-  - location = location_post.location
-- else
-  - location_post = nil
-
 .card.location-map{ 'data-id': location.slug }
   .card-block
-    %h2.card-title
-      - if location_post && location_post.show_order?
-        %span.text-primary= "#{location_post.order+1}."
-      = location.name
-    - if location_post && location_post.location.rating && location_post.location.rating > 0
-      %span.rating.tag.tag-success.current-rating{:href => "#"}
-        = location_post.location.rating.to_i
-        %i.fa.fa-spoon{"aria-hidden" => "true"}
-
-  - if location.photo
-    = render partial: 'photos/photo', object: location
-
-  .card-block
-    .card-text
-      = raw markdown location.description
-
-  .card-block
     .row
-      .col-6
+      .col-12
         %b= location.name
         = render location.address
 
-      .col-6
         %p
-          - location.posts.each do |map|
+          - location.posts.maps.each do |map|
             %span.badge.badge-primary= link_to map.short_title, map
 
           - location.areas.each do |area|
@@ -38,14 +14,16 @@
               %span.badge.badge-info= link_to area.name, area
 
         %p
+          - if !location.website.blank?
+            %a.btn.btn-outline-primary.btn-sm{ href: location.website, target: '_blank' }
+              %i.fa.fa-link
           - location.location_social_sites.each do |lss|
             %a.btn.btn-outline-primary.btn-sm{ href: lss.url, target: '_blank' }
               %i.fa{ class: "fa-#{lss.social_site.slug}" }
     %p
-      - if !location.review_url.blank?
-        %a.btn.btn-primary{:href => location.review_url, target: '_blank' } Read Our Review
-      - if !location.website.blank?
-        %a.btn.btn-secondary{:href => location.website, target: '_blank' } Visit Website
+      - if location.has_review?
+        = link_to "Read Our Review", review_path(location.review), class: 'btn btn-primary'
+
       %a.btn.btn-secondary{:href => location.directions_url, target: '_blank' }
         %i.fa.fa-location-arrow{"aria-hidden" => "true"}
         Directions

@@ -24,6 +24,14 @@ class Location < ApplicationRecord
     name_changed?
   end
 
+  def review
+    posts.reviews.first
+  end
+
+  def has_review?
+    !review.nil?
+  end
+
   def directions_url
     "https://www.google.com/maps/place/#{address.address}"
   end

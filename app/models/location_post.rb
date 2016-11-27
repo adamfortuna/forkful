@@ -6,7 +6,7 @@ class LocationPost < ApplicationRecord
   validates :location, presence: true
   validates :post, presence: true
 
-  default_scope -> { order('location_posts.order') }
+  scope :by_order, -> { order('location_posts.order') }
 
   accepts_nested_attributes_for :location, :reject_if => :all_blank
 

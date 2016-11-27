@@ -1,0 +1,27 @@
+.featured--image
+  %figure
+    = image_tag @broadcast.photo_poster
+
+.container.content--first
+  .row
+    %ol.breadcrumb
+      %li.breadcrumb-item= link_to "News", broadcasts_path
+      %li.breadcrumb-item= @broadcast.title
+
+  .row
+    .col-md-8
+      %h1.header--underline= @broadcast.title
+      %p.lead.subtitle= @broadcast.published_at
+
+      .news--content
+        = raw(markdown @broadcast.description)
+
+    .col-md-4
+      - if @broadcast.locations.count
+        %h2.header--underline Mentions
+        .cards.location--cards
+          = render @broadcast.locations
+
+        %h4.header--underline Recent News
+      - if @broadcasts.count
+        = render @broadcasts

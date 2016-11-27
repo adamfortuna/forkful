@@ -1,0 +1,22 @@
+- unless @broadcasts.empty?
+  .featured--image
+    %figure
+      = image_tag @broadcasts.first.photo_poster
+
+.container.content--first
+  .row
+    %ol.breadcrumb
+      %li.breadcrumb-item.active News
+
+  .row
+    %h1.header--underline Latest News
+
+  .row
+    .col-md-9
+      .cards
+        = render @broadcasts
+
+    .col-md-3
+      .list-group
+        %a.list-group-item{ href: '#' } News
+        %a.list-group-item{ href: '#' } Events

@@ -1,0 +1,12 @@
+.card
+  = link_to broadcast, class: 'float-left news--img-link img--wrapper' do
+    = image_tag broadcast.photo_thumb, class: 'rounded'
+  - if broadcast_counter == 0
+    %span.badge.badge-new.t-0 New
+  .card-img-overlay.p-0.rounded
+    .card-block.seethrough--light
+      %h4.card-title
+        = link_to broadcast.title, broadcast, class: 't-2'
+      %p.lead.subtitle
+        Posted
+        = time_ago_in_words(broadcast.published_at)

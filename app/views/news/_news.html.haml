@@ -1,9 +1,0 @@
-.card
-  %a.float-left.news--img-link.img--wrapper{:href => "#"}
-    = image_tag news.image, class: 'rounded'
-  - if news.is_new
-    %span.badge.badge-new.t-0 New
-  .card-img-overlay.p-0.rounded
-    .card-block.seethrough--light
-      %h4.card-title
-        %a.t-2{:href => "#"}= news.title

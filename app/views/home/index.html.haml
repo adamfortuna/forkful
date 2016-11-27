@@ -61,10 +61,11 @@
     .row
       %h3.header--underline Latest News
       .card-columns
-        = render partial: 'news/news', collection: @news
+        = render @broadcasts
     %p.text-xs-right
-      %a{:href => "#"}
+      = link_to broadcasts_path do
         Read More News
+        = "(#{@broadcasts_count})"
         %i.fa.fa-arrow-right{"aria-hidden" => "true"}
 
 

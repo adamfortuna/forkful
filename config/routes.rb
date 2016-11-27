@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :maps
+  resources :broadcasts, path: :news
+  resources :reviews
 
   resources :areas
 

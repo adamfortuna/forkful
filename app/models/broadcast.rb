@@ -1,0 +1,2 @@
+class Broadcast < Post
+end

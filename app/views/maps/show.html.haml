@@ -3,14 +3,14 @@
 
 #map.container-fluid
 
-.cards.cards--map
+.cards.cards--map.location--cards
   .card
     .card-block
       %h1.card-title= @map.title
     = render partial: 'photos/photo', object: @map
     .card-block= raw markdown @map.description
 
-  = render partial: 'locations/location', collection: @map.location_posts
+  = render partial: 'maps/location', collection: @map.location_posts
 
 :javascript
   var maps = #{@map.to_json};

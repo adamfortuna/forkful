@@ -4,7 +4,7 @@
 #map.container-fluid
 
 .cards.cards--map
-  = render partial: 'locations/location', collection: @area.locations
+  = render partial: 'maps/location', collection: @area.locations
 
 :javascript
   var maps = #{@area.to_json};
