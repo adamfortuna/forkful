@@ -11,4 +11,15 @@ module ApplicationHelper
   def markdown text
     Kramdown::Document.new(text).to_html
   end
+
+  def badge_for_rating rating
+    case rating.to_i
+    when 4..5
+      'badge-success'
+    when 3
+      'badge-warning'
+    else
+      'badge-danger'
+    end
+  end
 end

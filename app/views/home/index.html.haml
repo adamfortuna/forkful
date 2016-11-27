@@ -25,6 +25,7 @@
             What are you waiting for? Join our monthly newsletter for
             = succeed "," do
               %b exclusive Orlando deals
+            the latest news and events.
           %form.form-inline.background--secondary.row.rounded.p-2
             %input#exampleInputEmail3.form-control.col-xs{:placeholder => "Enter email", :type => "email"}/
             %button.col-3.col-xs-12.btn.btn-primary.newsletter--submit.ml-2{:type => "submit"} Sign Up
@@ -113,7 +114,7 @@
 
 .content-maps.mt-3
   .container
-    .row.area--maps
+    .row
       %h3.header--underline Maps
       .maps--cards
         = render partial: 'maps/map', collection: @maps
