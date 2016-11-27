@@ -1,18 +1,64 @@
 .badge-new
   backface-visibility: hidden
   -webkit-backface-visibility: hidden
+  position: absolute
   right: 0
   top: 0
-  font-size: 1.2rem
-  position: absolute
   background-color: $brand-primary
   text-transform: uppercase
-  border: 3px solid $brand-primary-light !important
+
+  &.t-0
+    right: -0.6rem
+    top: -0.6rem
+  &.t-1
+    right: -0.8rem
+    top: -0.8rem
+  &.t-2
+    right: -1rem
+    top: -1rem
+  &.t-4
+    right: -1.2rem
+    top: -1.2rem
+
+
+.t-0
+  font-size: 0.8rem
+.t-1
+  font-size: 1rem
+.t-2
+  font-size: 1.2rem
+.t-4
+  font-size: 1.4rem
+
+.subtitle
+  color: $gray-light
+  font-size: 0.8rem
+
+.underline--dark
+  border-bottom: 3px solid $brand-primary-light
+.underline--light
+  border-bottom: 3px solid $brand-primary-light
 
 .header--underline
   border-bottom: 2px solid $brand-primary
   display: inline-block
   margin-bottom: 0.8rem
+  padding-bottom: 0.3rem
+
+.background--secondary
+  background-color: $brand-primary-light
+
+.background--third-hover
+  &:hover
+    background-color: $brand-primary-very-light
+
+.seethrough--light
+  background-color: $seethrough--light
+.seethrough--dark
+  background-color: $seethrough--dark
+.seethrough--dark-hover
+  &:hover
+    background-color: $seethrough--dark
 
 .card-img-left
   border-bottom-left-radius: calc(0.25rem - 1px)

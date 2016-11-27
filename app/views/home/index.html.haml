@@ -15,9 +15,9 @@
     %span.sr-only Next
 
 
-.content--first
+.content--first.content--meta
   .container
-    .row.area--meta
+    .row
       .col-md-7
         %h3.header--underline Stay Up to Date
         %div
@@ -25,7 +25,7 @@
             What are you waiting for? Join our monthly newsletter for
             = succeed "," do
               %b exclusive Orlando deals
-          %form.form-inline.newsletter--form.row.rounded.p-2
+          %form.form-inline.background--secondary.row.rounded.p-2
             %input#exampleInputEmail3.form-control.col-xs{:placeholder => "Enter email", :type => "email"}/
             %button.col-3.col-xs-12.btn.btn-primary.newsletter--submit.ml-2{:type => "submit"} Sign Up
           %p.text-muted
@@ -37,7 +37,7 @@
           %h3.header--underline.clearfix About Forkful
         .float-right.float-md-left.float-lg-right.ml-2
           %img.rounded{:alt => "", :src => "assets/about.png"}/
-          %ul.list-inline.mt-2.ml-3.content-about--social
+          %ul.list-inline.mt-2.ml-3.t-4
             %li.list-inline-item
               %a{:href => "#"}
                 %i.fa.fa-twitter{"aria-hidden" => "true"}
@@ -57,18 +57,17 @@
 
 .content--news
   .container
-    .row.area--news
-      .news
-        %h3.header--underline Latest News
-        .card-columns
-          = render partial: 'news/news', collection: @news
-        %p.text-xs-right
-          %a{:href => "#"}
-            Read More News
-            %i.fa.fa-arrow-right{"aria-hidden" => "true"}
+    .row
+      %h3.header--underline Latest News
+      .card-columns
+        = render partial: 'news/news', collection: @news
+    %p.text-xs-right
+      %a{:href => "#"}
+        Read More News
+        %i.fa.fa-arrow-right{"aria-hidden" => "true"}
 
 
-.content--featured-article
+.content--featured-article.background--secondary.my-3.py-3
   .container
     %h3.header--underline Featured Article
     = render partial: 'featured/article', object: @featured_articles
@@ -112,7 +111,7 @@
     <!-- LightWidget WIDGET --><script src="//lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/4573d3a0f1815906a0082ab82ab77186.html" id="lightwidget_4573d3a0f1" name="lightwidget_4573d3a0f1"  scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
 
 
-.content-maps
+.content-maps.mt-3
   .container
     .row.area--maps
       %h3.header--underline Maps

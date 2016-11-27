@@ -1,22 +1,18 @@
-.news
-  .card
-    .badge-new
-      font-size: 0.8rem
-      top: -12px
-      right: -12px
+.content--news
   img
     width: 100%
     height: auto
 
-  h4
-    a
-      font-size: 1.2rem
   .card-img-overlay
     .card-block
-      background-color: rgba(255,255,255,0.8)
       position: absolute
       bottom: 0
       width: 100%
+
+  .card
+    &:hover
+      .seethrough--light
+        background-color: $seethrough--dark
 
   .card-columns
     @include media-breakpoint-only(sm)
@@ -27,18 +23,3 @@
       column-count: 2
     @include media-breakpoint-only(xl)
       column-count: 3
-
-
-.news--img-link
-  &:after
-    margin-top: 10px
-    margin-left: 10px
-    width: 180px
-    height: 120px
-.news
-  .card
-    &:hover
-      background-color: $brand-primary-very-light
-      .news--img-link
-        &:after
-          opacity: 1
