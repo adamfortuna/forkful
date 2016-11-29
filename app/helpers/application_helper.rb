@@ -22,4 +22,16 @@ module ApplicationHelper
       'badge-danger'
     end
   end
+
+  def featured img, &block
+    <<-HTML.strip_heredoc
+      <header class='featured--header'>
+        <div class='cover--wrapper' style= "background-image:url(#{img})">
+          <div class='featured--info'>
+            #{block.call}
+          </div>
+        </div>
+      </header>
+    HTML
+  end
 end

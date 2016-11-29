@@ -1,0 +1,37 @@
+.featured--header
+  height: 1000px
+  height: 100vh
+  width: 100%
+  max-height: $featured-header-height
+  position: relative
+  margin-bottom: 4%
+  overflow: hidden
+  top: -75px
+  margin-bottom: 0
+  border-bottom: 3px solid $brand-primary
+  .cover--wrapper
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    max-height: $featured-header-height
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    z-index: 0
+  .featured--info
+    position: absolute
+    z-index: 6
+    text-align: center
+    top: 54%
+    width: 100%
+    margin-top: -122px
+
+  &.featured--header-broadcast
+    max-height: $featured-header-height-short
+    .cover--wrapper
+      max-height: $featured-header-height-short
+
+.featured--after
+  margin-top: -75px

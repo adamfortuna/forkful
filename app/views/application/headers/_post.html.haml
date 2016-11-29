@@ -1,0 +1,5 @@
+- type = type || 'post'
+%header.featured--header{ class: "featured--header-#{type}"}
+  .cover--wrapper{ style: "background-image:url(#{img})" }
+    .featured--info
+      = yield

@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.published.page(params[:page])
+    @review = @reviews.first
   end
 
   def show

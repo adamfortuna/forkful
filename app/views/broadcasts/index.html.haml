@@ -1,17 +1,13 @@
-- unless @broadcasts.empty?
-  .featured--image
-    %figure
-      = image_tag @broadcasts.first.photo_poster
+= render layout: 'application/headers/post', locals: { img: image_url('covers/news.jpg'), type: 'broadcast' } do
+  %h1 Latest Orlando Food & Restaurant News
+  %p.subtitle.lead
+    Follow us on Twitter.
 
-.container.content--first
+.container.featured--after
   .row
     .col-md-12
       %ol.breadcrumb
         %li.breadcrumb-item.active News
-
-  .row
-    .col-md-12
-      %h1.header--underline Latest News
 
   .row
     .col-md-9

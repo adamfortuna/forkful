@@ -1,6 +1,20 @@
-.featured--callout
+.featured--carousel
   bottom: auto
   position: absolute
+  top: 0
+  overflow: hidden
+  border-bottom: 3px solid $brand-primary
+  figure
+    width: 100%
+    text-align: center
+    overflow: hidden
+  img
+    position: relative
+    left: 50%
+    transform: translate(-50%,-10%)
+    max-width: 100%
+    max-height: 100%
+
   p
     color: $gray
   .carousel--content
@@ -30,6 +44,28 @@
       font-family: $font-family-serif
       color: $gray-light
 
-// @media (min-width: 576px)
-//   .featured--callout
-//     top: 250px
+
+.featured--carousel
+  height: 300px
+.featured--carousel--after
+  margin-top: 225px
+@media (min-width: 576px)
+  .featured--carousel
+    height: 400px
+  .featured--carousel--after
+    margin-top: 325px
+@media (min-width: 768px)
+  .featured--carousel
+    height: 500px
+  .featured--carousel--after
+    margin-top: 425px
+@media (min-width: 992px)
+  .featured--carousel
+    height: 600px
+  .featured--carousel--after
+    margin-top: 525px
+@media (min-width: 1200px)
+  .featured--carousel
+    height: 700px
+  .featured--carousel--after
+    margin-top: 625px

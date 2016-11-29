@@ -1,17 +1,21 @@
-- unless @reviews.empty?
-  .featured--image
-    %figure
-      = image_tag @reviews.first.photo_poster
+= render layout: 'application/headers/post', locals: { img: @review.photo_poster } do
+  - if @review.published_at > 2.weeks.ago
+    %span.badge.badge-new.t-2 New
+  %h2= @review.title
+  %p.subtitle.lead
+    Posted
+    = time_ago_in_words @review.published_at
+  %p= @review.description
 
-.container.content--first
+.container.featured--after
   .row
     .col-md-12
       %ol.breadcrumb
-        %li.breadcrumb-item.active News
+        %li.breadcrumb-item.active Reviews
 
   .row
     .col-md-12
-      %h1.header--underline Latest News
+      %h1.header--underline All Reviews
 
   .row
     .col-md-9

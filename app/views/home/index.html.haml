@@ -1,4 +1,4 @@
-#featured-post.content--featured-posts.featured--image.carousel.slide{ 'data-ride' => 'carousel' }
+%header#featured-post.content--featured-posts.featured--carousel.carousel.slide{ 'data-ride' => 'carousel' }
   %ol.carousel-indicators
     - @featured_posts.each do |post, index|
       %li{ 'data-target' => '#featured-post', 'data-slide-to' => index, class: (index == 0) ? 'active' : '' }
@@ -15,7 +15,7 @@
     %span.sr-only Next
 
 
-.content--first.content--meta
+.featured--carousel--after.content--meta.pt-3
   .container
     .row
       .col-md-7
