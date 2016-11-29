@@ -4,9 +4,10 @@
 
 .container.content--first
   .row
-    %ol.breadcrumb
-      %li.breadcrumb-item= link_to "News", broadcasts_path
-      %li.breadcrumb-item= @broadcast.title
+    .col-md-12
+      %ol.breadcrumb
+        %li.breadcrumb-item= link_to "News", broadcasts_path
+        %li.breadcrumb-item= @broadcast.title
 
   .row
     .col-md-8
@@ -22,6 +23,6 @@
         .cards.location--cards
           = render @broadcast.locations
 
-        %h4.header--underline Recent News
+      %h4.header--underline Recent News
       - if @broadcasts.count
         = render @broadcasts

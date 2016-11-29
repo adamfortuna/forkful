@@ -4,6 +4,16 @@ class Post < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
+  include AttrBitwise
+  attr_bitwise :highlights, mapping: [:spotlight, :feature]
+
+  scope :with_any_highlights, lambda { |*highlights_sym|
+    where(highlights_value: bitwise_union(*highlights_sym, 'highlights'))
+  }
+  scope :with_all_highlights, lambda { |*locales_sym|
+    where(highlights_value: bitwise_intersection(*highlights_sym, 'highlights'))
+  }
+
   belongs_to :admin_user, foreign_key: :user_id
 
   has_many :location_posts, inverse_of: :post
@@ -21,6 +31,13 @@ class Post < ApplicationRecord
   scope :broadcasts, -> { where(type: 'Broadcast') }
   scope :events, -> { where(type: 'Event') }
 
+  # before_save :debug_me
+  #
+  # def debug_me
+  #   binding.pry
+  #   false
+  # end
+
   def should_generate_new_friendly_id?
     title_changed?
   end
@@ -35,6 +52,20 @@ class Post < ApplicationRecord
 
   def photo_poster
     photo.url(:poster)
+  end
+
+  def all_highlights
+    Post::HIGHLIGHTS_MAPPING.reject do |h|
+      !highlights.include?(h)
+    end.collect { |h| h.last }
+  end
+
+  def all_highlights= h
+    self.highlights = h.reject { |e| e.to_s.empty? }
+  end
+
+  def location
+    locations.first
   end
 
   def as_json(options={})

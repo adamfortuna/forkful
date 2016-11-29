@@ -4,7 +4,7 @@
       %li{ 'data-target' => '#featured-post', 'data-slide-to' => index, class: (index == 0) ? 'active' : '' }
 
   .carousel-inner.text-left{ role: 'listbox' }
-    = render partial: 'featured/post', collection: @featured_posts
+    = render partial: 'post', collection: @featured_posts
 
   %a.left.carousel-control{ href: '#featured-post', role: 'button', 'data-slide' => 'prev' }
     %span.icon-prev{ 'aria-hidden' => 'true' }
@@ -69,14 +69,15 @@
         %i.fa.fa-arrow-right{"aria-hidden" => "true"}
 
 
-.content--featured-article.background--secondary.my-3.py-3
-  .container
-    %h3.header--underline Featured Article
-    = render partial: 'featured/article', object: @featured_articles
-    %p.text-xs-right
-      %a{:href => "#"}
-        See All Featured Articles
-        %i.fa.fa-arrow-right{"aria-hidden" => "true"}
+- if @guide
+  .content--featured-article.background--secondary.my-3.py-3
+    .container
+      %h3.header--underline Featured Guide
+      = render partial: 'guide', object: @guide
+      %p.text-xs-right
+        %a{:href => "#"}
+          = "See All #{pluralize(@guides_count, 'Guide')}"
+          %i.fa.fa-arrow-right{"aria-hidden" => "true"}
 
 
 .content--best-of
@@ -85,7 +86,7 @@
       .best.col-xs-12
         %h3.header--underline Best Of Orlando
         .card-deck
-          = render partial: 'featured/best', collection: @bests
+          = render partial: 'best', collection: @bests
         %p.text-xs-right
           %a{:href => "#"}
             See All 23 Best of Orlando Lists
@@ -98,10 +99,10 @@
       .col-12
         %h3.header--underline Recent Reviews
         .card-columns
-          = render partial: 'featured/review', collection: @reviews
+          = render partial: 'review', collection: @reviews
         %p.text-xs-right
           %a{:href => "#"}
-            See All 76 Reviews
+            = "See All #{pluralize(@reviews_count, 'Review')}"
             %i.fa.fa-arrow-right{"aria-hidden" => "true"}
 
 

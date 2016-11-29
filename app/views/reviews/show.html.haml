@@ -1,0 +1,34 @@
+.featured--image.review--header.carousel
+  .carousel-item
+    %figure
+      = image_tag @review.photo_poster
+
+    .carousel-caption--wrapper
+      .container
+        .carousel--content.seethrough--light.col-8.offset-2.p-3
+          - if @review.published_at > 2.weeks.ago
+            %span.badge.badge-new.t-2 New
+          %h2= @review.title
+          %p.subtitle.lead
+            Posted
+            = time_ago_in_words @review.published_at
+          %p= @review.description
+
+
+.content--first
+  .container
+    .row
+      .col-md-8.offset-2.breadcrumb--wrapper
+        %ol.breadcrumb
+          %li.breadcrumb-item= link_to "Reviews", reviews_path
+          %li.breadcrumb-item.active= @review.location.name
+    .row
+      .col-md-8.offset-2
+        = raw(markdown @review.description)
+
+    .row
+      .col-md-8.offset-2
+        - if @review.locations.count
+          %h2.header--underline Mentions
+          .cards.location--cards
+            = render @review.locations

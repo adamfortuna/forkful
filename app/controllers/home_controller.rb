@@ -3,14 +3,24 @@ class HomeController < ApplicationController
   def about; end
 
   def index
-    @featured_posts = Seed.data.featured_posts.active
+    @featured_posts = Post.published.with_any_highlights(:spotlight).by_date.limit(3)
 
+    # News - Top 8
     @broadcasts = Broadcast.published.by_date.limit(6)
-    @broadcasts_count = Broadcast.count
+    @broadcasts_count = Broadcast.published.count
 
-    @featured_articles = Seed.data.featured_article
+    # Guide - Recently Featured
+    @guide = Guide.published.with_any_highlights(:feature).by_date.limit(1).first
+    @guides_count = Guide.published.count
+
+    # Reviews - Recent 3
+    @reviews = Review.published.by_date.limit(3)
+    @reviews_count = Review.published.count
+
+    # Best Of Lists - Recent 3
     @bests = Seed.data.best.all
-    @reviews = Seed.data.reviews.active
+
+    # Maps - Recent 8
     @maps = Map.published.by_date.limit(8)
   end
 end

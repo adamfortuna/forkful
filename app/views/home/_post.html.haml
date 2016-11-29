@@ -1,0 +1,14 @@
+.carousel-item{ class: (post_counter == 0) ? 'active' : '' }
+  %figure
+    = image_tag post.photo_poster
+  .carousel-caption.featured--callout.offset-4.col-3.text-sm-left.p-0
+    - if post_counter == 0
+      %span.badge.badge-new.t-2 New
+
+    = link_to review_path(post), class: 'carousel--content' do
+      %h3= post.title
+      %p= post.description
+      %p
+        %em
+          Written
+          = time_ago_in_words post.published_at

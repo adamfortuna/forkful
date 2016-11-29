@@ -10,4 +10,12 @@ class SocialSite < ApplicationRecord
   def should_generate_new_friendly_id?
     name_changed?
   end
+
+  def lookup?
+    Forkful::SocialSite.can_lookup?(self)
+  end
+
+  def lookup remote_id
+    Forkful::SocialSite.setup(self).new(remote_id).lookup
+  end
 end

@@ -1,7 +1,7 @@
 ActiveAdmin.register Location do
   permit_params :name, :description, :short_description, :rating, :website, :review_url, :photo, :photo_src, :photo_src_url,
                 address_attributes: [ :id, :street, :city, :region, :postal_code, :country, :lat, :lng, :_destroy ],
-                location_social_sites_attributes: [:id, :location_id, :social_site_id, :url, :_destroy],
+                location_social_sites_attributes: [:id, :location_id, :social_site_id, :remote_id, :url, :_destroy],
                 area_ids: []
 
   index do
@@ -44,7 +44,7 @@ ActiveAdmin.register Location do
     end
 
     f.has_many :location_social_sites, heading: 'Social Sites', allow_destroy: true, new_record: true do |location_social_site|
-      location_social_site.inputs :social_site, :url
+      location_social_site.inputs :social_site, :url, :remote_id
     end
 
     f.actions
@@ -96,6 +96,8 @@ ActiveAdmin.register Location do
       @location.location_social_sites.each do |lss|
         attributes_table_for lss do
           row :url
+          row :remote_id
+          row :rating
           attributes_table_for lss.social_site do
             row :name
           end

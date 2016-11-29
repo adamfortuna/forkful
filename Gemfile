@@ -8,6 +8,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem "haml-rails", '~> 0.9.0'
+gem 'activemodel'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
@@ -35,6 +36,11 @@ gem 'mini_magick'
 
 gem 'kramdown'
 gem 'kaminari'
+gem 'acts-as-taggable-on', '~> 4.0'
+gem 'attr_bitwise'
+
+# Social
+gem 'yelp', require: 'yelp'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

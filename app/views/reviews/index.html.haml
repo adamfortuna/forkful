@@ -1,7 +1,7 @@
-- unless @broadcasts.empty?
+- unless @reviews.empty?
   .featured--image
     %figure
-      = image_tag @broadcasts.first.photo_poster
+      = image_tag @reviews.first.photo_poster
 
 .container.content--first
   .row
@@ -16,7 +16,7 @@
   .row
     .col-md-9
       .cards
-        = render @broadcasts
+        = render @reviews
 
     .col-md-3
       .list-group

@@ -1,0 +1,2 @@
+class Guide < Post
+end

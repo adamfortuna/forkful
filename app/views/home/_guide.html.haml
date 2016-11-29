@@ -1,0 +1,10 @@
+.card.row
+  = image_tag guide.image
+  .card-img-overlay
+    .featured--callout.col-5.offset-6
+      %a{:href => "#"}
+        - if guide.is_new
+          %span.badge.badge-new.t-1 New
+        %h4.pb-1.m-0= guide.title
+        %p.lead.subtitle= guide.meta
+        %p.card-text= guide.description
