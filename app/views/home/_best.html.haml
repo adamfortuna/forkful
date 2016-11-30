@@ -1,10 +1,12 @@
 .card.background--third-hover
-  %a.best--img-link.img--wrapper{:href => "#"}
-    = image_tag best.image, class: 'card-img-top img-fluid'
+  %a.best--img-link.img--wrapper{ href: map_path(best) }
+    = image_tag best.photo_thumb, class: 'card-img-top img-fluid'
   .card-block
-    - if best.is_new
+    - if best_counter = 0
       %span.badge.badge-new.t-0 New
     %h4.card-title.pb-1.m-0
-      %a{:href => "#"}= best.title
-    %p.lead.subtitle= best.meta
-    %p.card-text= best.description
+      = link_to best.title, best
+    %p.lead.subtitle
+      Added
+      = time_ago_in_words best.published_at
+    %p.card-text= best.short_description

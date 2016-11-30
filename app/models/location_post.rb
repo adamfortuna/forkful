@@ -20,7 +20,6 @@ class LocationPost < ApplicationRecord
       description: location.description,
       rating: location.rating,
       website: location.website,
-      website: location.review_url,
       photo: location.photo.url(:thumb),
       photo_src: location.photo_src,
       photo_src_url: location.photo_src_url,

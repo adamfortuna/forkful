@@ -1,17 +1,14 @@
 ---
 all:
-  - :is_new: true
-    :image: news/bulla.jpg
-    :title: 14 Best Pizzas in Orlando
-    :description: Spanish Tapas, cocktails and authentic dishes.
-    :meta: Posted 2 days ago
-  - :is_new: false
-    :image: news/domu.jpg
-    :title: 8 Best Places for Ramen in Orlando
-    :description: The new ramen and cocktails restaurant in East End Market is in soft opening.
-    :meta: Posted 17 days ago
-  - :is_new: false
-    :image: news/bulla.jpg
-    :title: 17 Best places to eat at Disney Springs
-    :description: Spanish Tapas, cocktails and authentic dishes.
-    :meta: Posted 2 months ago
+  - 14 Best Pizzas in Orlando
+  - 10 Best Places for Steak in Orlando
+  - 6 Best Ramen Restaurants in Orlando
+  - 8 Best Coffee Shops to Work Remotely
+  - 7 Best Seafood Restaurants for Freshness in Orlando
+  - 5 Places to get the Freshest Oysters in Orlando
+  - 9 Places in Orlando get Authentic Tacos
+  - 9 Places to Eat in Disney Springs
+  - 11 Best Places to Get Cocktails in Orlando
+  - 9 Best Walking Districts for a Night Out in Orlando
+  - 6 Movie Theaters with the Best Food in Orlando
+  - 9 Stops to Make on Every Epcot Trip

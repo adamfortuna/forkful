@@ -7,7 +7,7 @@
 .card.location-map{ 'data-id': location.slug }
   .card-block
     %h2.card-title
-      - if location_post && location_post.show_order?
+      - if location_post && location_post.show_order? && location_post.order
         %span.text-primary= "#{location_post.order+1}."
       = location.name
     - if location_post && location_post.location.rating && location_post.location.rating > 0

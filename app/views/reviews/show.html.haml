@@ -5,7 +5,7 @@
   %p.subtitle.lead
     Posted
     = time_ago_in_words @review.published_at
-  %p= @review.description
+  %p= @review.short_description
 
 .featured--after
   .container

@@ -1,5 +1,5 @@
 .card.background--third-hover
-  %a.float-left.reviews--img-link.img--wrapper.pr-3{:href => "#"}
+  %a.float-left.reviews--img-link.img--wrapper.pr-3{href: review_path(review) }
     = image_tag review.image, class: 'card-img-left'
   .card-block.p-2
     .reviews--title
@@ -7,10 +7,10 @@
         %span.badge.float-right{ class: badge_for_rating(review.location.rating) }
           = review.location.rating
           %i.fa.fa-spoon
-        %a{:href => "#"}= review.title
+        %a{href: review_path(review) }= review.title
       %p.lead.subtitle= review.location.name
     %p.card-text
       = review.short_description
-      %a.reviews--read-more.t-0{:href => "#"}
+      %a.reviews--read-more.t-0{href: review_path(review) }
         Read Review
         %i.fa.fa-arrow-right

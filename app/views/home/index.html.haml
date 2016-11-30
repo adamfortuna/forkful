@@ -101,7 +101,7 @@
         .card-columns
           = render partial: 'review', collection: @reviews
         %p.text-xs-right
-          %a{:href => "#"}
+          = link_to reviews_path do
             = "See All #{pluralize(@reviews_count, 'Review')}"
             %i.fa.fa-arrow-right{"aria-hidden" => "true"}
 

@@ -9,6 +9,7 @@ module ApplicationHelper
   end
 
   def markdown text
+    return "" unless text
     Kramdown::Document.new(text).to_html
   end
 

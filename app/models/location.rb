@@ -32,6 +32,31 @@ class Location < ApplicationRecord
     !review.nil?
   end
 
+  def self.new_from_business business
+    Location.new.tap do |location|
+      location.name = business.name
+      location.address = business.address
+    end
+  end
+
+  def self.find_or_initialize_from_yelp yelp_id
+    yelp = SocialSite.where(slug: 'yelp').first or raise "No Yelp"
+    if social_site = LocationSocialSite.where(remote_id: yelp_id, social_site_id: yelp.id).first
+      return social_site.location
+    end
+
+    business = Forkful::SocialSites::Yelp.new(yelp_id).lookup
+    location = Location.new_from_business(business)
+
+    location.location_social_sites << LocationSocialSite.new({
+      url: "https://www.yelp.com/biz/#{yelp_id}",
+      remote_id: yelp_id,
+      social_site_id: yelp.id
+    })
+
+    location
+  end
+
   def directions_url
     "https://www.google.com/maps/place/#{address.address}"
   end

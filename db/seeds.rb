@@ -1,83 +1,142 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+def create_review_title name
+  words = Faker::Hipster.words(rand(4)+1)
+  words << name
+  words.shuffle.collect(&:capitalize).join(' ')
+end
+
+def create_review_description name
+  lines = []
+  rand(20).times.collect do |index|
+    if index != 0
+      lines << "## " + Faker::Hipster.sentence(3, false).first(-1)
+    end
+
+    lines << Faker::Hipster.paragraph(rand(8), false, 4)
+  end
+
+  lines.join("\n\n")
+end
+
+def create_random_highlights
+  highlights = []
+  highlights << :spotlight if rand(10) > 6
+  highlights << :feature if rand(10) > 5
+
+  highlights
+end
+
+def map_description
+  lines = []
+  rand(5).times.collect do |index|
+    lines << Faker::Hipster.paragraph(rand(4), false, 4)
+  end
+
+  lines.join("\n\n")
+end
+
+images = Dir[File.join(Rails.root, 'app', 'assets', 'images', 'seeds', '*')]
+
+puts "Users..."
+puts "  adam@fortuna.name"
 AdminUser.find_or_create_by(email: 'adam@fortuna.name').tap do |user|
   user.password = 'password'
   user.password_confirmation = 'password'
   user.save
 end
 
-
-['Orlando', 'Baldwin Park', 'Winter Park', 'Audoban Park', 'Altamonte Springs', 'All Disney', 'Disney Resorts', 'Disney Springs', 'Magic Kingdom', 'Epcot', 'Animal Kingdom', 'All Universal', 'Universal CityWalk', 'Islands of Adventure', 'Universal Studios', 'Universal Resorts'].each do |a|
-  Area.find_or_create_by(name: a).tap do |area|
-    area.is_public = true
-    area.save
-  end
-
+puts "\n\nSocial Sites..."
+Seed.data.social_sites.active.each do |ss|
+  puts "  #{ss.name}"
+  SocialSite.find_or_create_by(name: ss.name)
 end
 
-locations = [
-  {
-    name: 'Kappo',
-    website: 'http://www.kappoeastend.com',
-    review_url: 'http://forkful.net',
-    price: 4,
-    description: 'Kappo is a cool place.',
-    rating: 5,
-    areas: [Area.friendly.find('orlando'), Area.friendly.find('audoban-park'), Area.friendly.find('winter-park')],
-    address: {
-      street: '3201 Corrine Dr',
-      city: 'Orlando',
-      region: 'FL',
-      postal_code: '32803',
-      country: 'United States'
-    }
-  },
-  {
-    name: 'Seito Sushi',
-    website: 'http://www.kappoeastend.com',
-    review_url: 'http://forkful.net',
-    price: 4,
-    description: 'Seito has an awesome Omakase menu.',
-    rating: 5,
-    areas: [Area.friendly.find('orlando'), Area.friendly.find('baldwin-park'),Area.friendly.find('winter-park')],
-    address: {
-      street: '4898 New Broad St',
-      city: 'Orlando',
-      region: 'FL',
-      postal_code: '32814',
-      country: 'United States'
-    }
-  }
-]
-
-
-locations.each do |l|
-  Location.find_or_initialize_by(name: l[:name]).tap do |location|
-    location.website = l[:website]
-    location.review_url = l[:review_url]
-    location.price = l[:price]
-    location.description = l[:description]
-    location.rating = l[:rating]
-    location.address = Address.create!(l[:address])
-    location.areas = l[:areas]
-    location.save
+puts "\n\nLocations..."
+Seed.data.locations.active.each do |r|
+  Location.find_or_initialize_from_yelp(r).tap do |location|
+    location.rating = rand(4) + 1
+    puts "  #{location.name}"
+    location.save!
   end
+end
+puts "Currently at #{Location.count} Location"
+
+puts "\n\nReviews..."
+Location.all.each_with_index do |location, index|
+  next if index % 7 == 0
+
+  if !(review = location.posts.reviews.first)
+    review = Review.new
+    review.locations << location
+  end
+
+  review.title = create_review_title(location.name)
+  review.short_title = create_review_title(location.name)
+  review.short_description = Faker::Hipster.paragraph(2)
+  review.description = create_review_description(location.name)
+  review.published_at = rand(100).days.ago
+
+  review.highlights = create_random_highlights
+
+  review.photo = File.open(images.sample) if review.photo.file.nil?
+
+  puts "  #{review.title}"
+  review.save!
 end
 
 
-sushi = Map.find_or_initialize_by(title: 'Best Sushi Restaurants in Orlando').tap do |map|
-  map.short_title = 'Best Sushi'
-  map.description = "Where can you get the best sushi in Orlando? Here are our top picks."
+puts "\n\nNews..."
+Location.all.each_with_index do |location, index|
+  next if index % 7 == 0
 
-  map.location_maps = [
-    LocationMap.new(location: Location.find_by(name: 'Kappo'), order: 1),
-    LocationMap.new(location: Location.find_by(name: 'Seito Sushi'), order: 2)
-  ]
+  if !(news = location.posts.broadcasts.first)
+    news = Broadcast.new
+    news.locations << location
+  end
 
-  map.save
+  title = "Something About #{location.name}"
+
+  news.title = title
+  news.short_title = title
+  news.description = Faker::Hipster.paragraph(10)
+  news.short_description = Faker::Hipster.paragraph(2)
+  news.published_at = rand(100).days.ago
+
+  news.photo = File.open(images.sample) if news.photo.file.nil?
+
+  if (index % 3) == 0
+    rand(3).times do
+      offset = rand(Location.count)
+      news.locations << Location.offset(offset).first
+    end
+  end
+
+  puts "  #{news.title}"
+  news.save!
+end
+
+
+puts "\n\nMaps..."
+Seed.data.best.all.each do |title|
+  Map.find_or_initialize_by(title: title).tap do |map|
+    map.short_title = map.title
+    map.description = map_description
+    map.short_description = Faker::Hipster.paragraph(2)
+    map.published_at = rand(100).days.ago
+
+    map.photo = File.open(images.sample) if map.photo.file.nil?
+
+    count = title.to_i
+
+    loop do
+      offset = rand(Location.count)
+      location = Location.offset(offset).first
+      unless map.locations.include?(location)
+        map.locations << location
+      end
+      break if map.locations.length >= count
+    end
+
+    puts "  #{map.title}"
+    map.save!
+  end
 end
